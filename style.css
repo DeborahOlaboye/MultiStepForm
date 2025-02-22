@@ -23,6 +23,14 @@ body{
     font-family: var(--ff-base);
 }
 
+img {
+    width: 24px;
+    height: 24px;
+}
+p {
+    font-size: 0.75rem;
+    color: var(--clr-neutral1);
+}
 .container {
     background-color: var(--clr-neutral5);
     padding: 1rem 1rem;
@@ -121,7 +129,7 @@ body{
 .form-container {
     padding: 2rem;
 }
-.form-container h1, h4 {
+.form-container h1, h4, h5 {
     color: var(--clr-primary1);
     margin-top: 1rem;
     margin-bottom: 0;
@@ -137,7 +145,7 @@ body{
     flex-direction: column;
     align-self: flex-start;
 }
-.button-container button {
+.form-container form button {
     color: var(--clr-neutral5);
     background-color: var(--clr-primary1);
     border: none;
@@ -145,6 +153,17 @@ body{
     padding: 0.5rem 2rem;
     cursor: pointer;
     margin-left: auto;
+    margin-top: 2rem;
+}
+
+.button-container .back {
+    color: var(--clr-neutral1);
+    background-color: var(--clr-neutral3);
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+    margin-left: 0;
     margin-top: 2rem;
 }
 
@@ -160,4 +179,156 @@ body{
 .form-container input:focus {
     border-color: var(--clr-primary2);
     outline: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.button-container:first-child {
+    display: flex;
+    justify-content: flex-start;
+}
+.plans {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.plans h4 {
+    margin-top: 2rem;
+}
+.plans p,
+.plans h5 {
+    margin: 0;
+    white-space: nowrap;
+} 
+.plans div {
+    border: 1px solid var(--clr-neutral1);
+    padding-right: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.plans div:focus {
+    border: 1px solid var(--clr-primary2);
+}
+.duration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--clr-neutral3);
+    border-radius: 5px;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.toggle-option {
+    font-size: 1rem;
+    color: var(--clr-primary1);
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 24px;
+    background-color: var(--clr-primary1);
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+  }
+  
+  .slider {
+    position: absolute;
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.4s;
+  }
+  
+.addon-items {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+.addon-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-bottom: 0.625rem;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.addon-item.active {
+  border-color: var(--clr-primary2);
+  background-color: #f0f4ff;
+}
+
+.addon-item .checkmark {
+  height: 20px;
+  width: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.addon-item.active .checkmark {
+  background-color: var(--clr-primary2);
+  border-color: var(--clr-primary2);
+}
+
+.addon-item.active .checkmark::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.addon-content {
+  flex-grow: 1;
+  padding: 1rem 0rem;
+  justify-content: center;
+  align-items: center;
+}
+.addon-content h5 {
+    margin: 0;
+}
+
+.price {
+  color: var(--clr-primary2);
+  white-space: nowrap;
+  font-size: 0.75rem;
+  padding-left: 4rem;
+}
+
+#step-5 {
+    text-align: center;
+}
+#step-5 img {
+    width: 50%;
+    height: 50%;
+}
+#step-5 p {
+    font-size: 1rem;
 }

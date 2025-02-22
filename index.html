@@ -72,79 +72,146 @@
     <!-- Step 1 end -->
     </div>
 
-    <div class="form-container" id="step-2">
+    <div class="form-container" id="step-2" style="display: none;">
       <!-- Step 2 start -->
-       <h1>Select your plan</h1>
-       <p>You have the option of monthly or yearly billing.</p>
+      <h1>Select your plan</h1>
+      <p>You have the option of monthly or yearly billing.</p>
 
+
+      <form action="">
+        <div class="plans" id="monthly" style="display: none;">
+          <div>
+            <img src="assets/images/icon-arcade.svg" alt="Arcade">
+            <h4>Arcade</h4>
+            <p>$9/mo</p>
+          </div>
+          <div>
+            <img src="assets/images/icon-advanced.svg" alt="Advanced">
+            <h4>Advanced</h4>
+            <p>$12/mo</p>
+          </div>
+          <div>
+            <img src="assets/images/icon-pro.svg" alt="Pro">
+            <h4>Pro</h4>
+            <p>$15/mo</p>
+          </div>
+        </div>
+
+        <div class="plans" id="yearly">
+          <div>
+            <img src="assets/images/icon-arcade.svg" alt="Arcade">
+            <h4>Arcade</h4>
+            <p>$90/yr</p>
+            <h5>2 months free</h5>
+          </div>
+          <div>
+            <img src="assets/images/icon-advanced.svg" alt="Advanced">
+            <h4>Advanced</h4>
+            <p>$120/yr</p>
+            <h5>2 months free</h5>
+          </div>
+          <div>
+            <img src="assets/images/icon-pro.svg" alt="Pro">
+            <h4>Pro</h4>
+            <p>$150/yr</p>
+            <h5>2 months free</h5>
+          </div>
+        </div>
+
+        <div class="duration">
+          <div class="toggle-option">Monthly</div>
+          <div class="toggle-switch">
+            <label for="toggle" class="slider"></label>
+          </div>
+          <div class="toggle-option">Yearly</div>
+        </div>
+        
+        <div class="button-container">
+          <button type="submit" class="back">Go Back</button>
+          <button type="submit">Next Step</button>
+        </div>
+        
+      </form>
   
-  
 
-  Arcade
-  $9/mo
 
-  Advanceds
-  $12/mo
-
-  Pro
-  $15/mo
-
-  Monthly
-  Yearly
-
-  Go Back
-  Next Step
 
     <!-- Step 2 end -->
     </div>
 
     <div class="form-container" id="step-3" style="display: none;">
       <!-- Step 3 start -->
+       <h1>Pick add-ons</h1>
+       <p>Add-ons help enhance your gaming experience.</p>
 
-  Pick add-ons
-  Add-ons help enhance your gaming experience.
+       <form action="">
+        <div class="addon-items">
+          <div class="addon-item">
+            <span class="checkmark"></span>
+            <div class="addon-content">
+              <h5>Online service</h5>
+              <p>Access to multiplayer games</p>
+            </div>
+            <span class="price">+$1/mo</span>
+          </div>
+  
+          <div class="addon-item">
+            <span class="checkmark"></span>
+            <div class="addon-content">
+              <h5>Larger storage</h5>
+              <p>Extra 1TB of cloud save</p>
+            </div>
+            <span class="price">+$2/mo</span>
+          </div>
+  
+          <div class="addon-item">
+            <span class="checkmark"></span>
+            <div class="addon-content">
+              <h5>Customizable Profile</h5>
+              <p>Custom theme on your profile</p>
+            </div>
+            <span class="price">+$2/mo</span>
+          </div>
+        </div>
+        <div class="button-container">
+          <button type="submit" class="back">Go Back</button>
+          <button type="submit">Next Step</button>
+        </div>
+       </form>
+  
 
-  Online service
-  Access to multiplayer games
-  +$1/mo
-
-  Larger storage
-  Extra 1TB of cloud save
-  +$2/mo
-
-  Customizable Profile
-  Custom theme on your profile
-  +$2/mo
-
-  Go Back
-  Next Step
+    
 
     <!-- Step 3 end -->
     </div>
   
     <div class="form-container" id="step-4" style="display: none;">
       <!-- Step 4 start -->
+      <h1>Finishing up</h1>
+      <p>Double-check everything looks OK before confirming.</p>
 
-  Finishing up
-  Double-check everything looks OK before confirming.
+      <!-- Dynamically add subscription and add-on selections here -->
 
-  <!-- Dynamically add subscription and add-on selections here -->
-
-  Total (per month/year)
-
-  Go Back
-  Confirm
+      <form action="" method="get">
+        <div>
+          <p>Total (per month/year)</p><span></span>
+        </div>
+        <div class="button-container">
+          <button type="submit" class="back">Go Back</button>
+          <button type="submit">Confirm</button>
+        </div>
+      </form>
+   
 
     <!-- Step 4 end -->
     </div>
-    <div class="step5" style="display: none;">
+    <div class="form-container" id="step-5">
       <!-- Step 5 start -->
-
-  Thank you!
-
-  Thanks for confirming your subscription! We hope you have fun 
-  using our platform. If you ever need support, please feel free 
-  to email us at support@loremgaming.com.
+       <img src="assets/images/icon-thank-you.svg" alt="Thanks">
+       <h1>Thank you!</h1>
+       <p>Thanks for confirming your subscription! We hope you have fun 
+        using our platform. If you ever need support, please feel free 
+        to email us at support@loremgaming.com.</p>
 
     <!-- Step 5 end -->
     </div>
