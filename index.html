@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  
+  <title>Multi-step form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <div class="sidebar">
+      <ul>
+        <li class="active">
+          <div class="text-group">
+            <span>Step 1</span>
+            <h3>Your Info</h3>
+          </div>
+        </li>
+        <li>
+          <div class="text-group">
+            <span>Step 2</span>
+            <h3>Select Plan</h3>
+          </div>
+        </li>
+        <li>
+          <div class="text-group">
+            <span>Step 3</span>
+            <h3>Add-Ons</h3>
+          </div>
+        </li>
+        <li>
+          <div class="text-group">
+            <span>Step 4</span>
+            <h3>Summary</h3>
+          </div>
+        </li>
+      </ul>
+    </div>
+  
+
+    <div class="form-container active" id="step-1" style="display: none;">
+
+    <!-- Step 1 start -->
+      <h1>Personal info</h1>
+      <p>Please provide your name, email address, and phone number.</p>
+      <form>
+        <h4>Name</h4>
+        <input type="text" name="Name" id="" placeholder="e.g. Stephen King">
+
+        <h4>Email Address</h4>
+        <input type="email" name="Email Address" id="" placeholder="e.g. stephenking@lorem.com">
+
+        <h4>Phone Number</h4>
+        <input type="tel" name="Phone" id="" placeholder="e.g. +1 234 567 890">
+
+        <button type="submit">Next Step</button>
+      </form>
+
+    <!-- Step 1 end -->
+    </div>
+
+    <div class="form-container" id="step-2">
+      <!-- Step 2 start -->
+       <h1>Select your plan</h1>
+       <p>You have the option of monthly or yearly billing.</p>
+
+  
+  
+
+  Arcade
+  $9/mo
+
+  Advanceds
+  $12/mo
+
+  Pro
+  $15/mo
+
+  Monthly
+  Yearly
+
+  Go Back
+  Next Step
+
+    <!-- Step 2 end -->
+    </div>
+
+    <div class="form-container" id="step-3" style="display: none;">
+      <!-- Step 3 start -->
+
+  Pick add-ons
+  Add-ons help enhance your gaming experience.
+
+  Online service
+  Access to multiplayer games
+  +$1/mo
+
+  Larger storage
+  Extra 1TB of cloud save
+  +$2/mo
+
+  Customizable Profile
+  Custom theme on your profile
+  +$2/mo
+
+  Go Back
+  Next Step
+
+    <!-- Step 3 end -->
+    </div>
+  
+    <div class="form-container" id="step-4" style="display: none;">
+      <!-- Step 4 start -->
+
+  Finishing up
+  Double-check everything looks OK before confirming.
+
+  <!-- Dynamically add subscription and add-on selections here -->
+
+  Total (per month/year)
+
+  Go Back
+  Confirm
+
+    <!-- Step 4 end -->
+    </div>
+    <div class="step5" style="display: none;">
+      <!-- Step 5 start -->
+
+  Thank you!
+
+  Thanks for confirming your subscription! We hope you have fun 
+  using our platform. If you ever need support, please feel free 
+  to email us at support@loremgaming.com.
+
+    <!-- Step 5 end -->
+    </div>
+  </div>
+</body>
+</html>
