@@ -186,6 +186,7 @@ p {
     justify-content: space-between;
     width: 100%;
     align-items: center;
+    position: absolute;
 }
 .button-container:first-child {
     display: flex;
