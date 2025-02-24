@@ -41,6 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
   
     nextButtons.forEach(button => {
       button.addEventListener("click", function () {
+        if (currentStep === 1 && !selectedPlan) { 
+            alert("Please select a plan before proceeding.");
+            return;
+        }
         if (currentStep < steps.length - 1) {
           currentStep++;
           showStep(currentStep);
