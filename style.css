@@ -204,16 +204,19 @@ p {
     margin: 0;
     white-space: nowrap;
 } 
-.plans div {
+.plan {
     border: 1px solid var(--clr-neutral1);
     padding-right: 2rem;
     padding-top: 1rem;
     padding-bottom: 2rem;
     padding-left: 1rem;
+    min-width: 5rem;
+    max-width: 5rem;
     border-radius: 5px;
     cursor: pointer;
 }
-.plans div:focus {
+.plan:hover,
+.plan.selected {
     border: 1px solid var(--clr-primary2);
 }
 .duration {
@@ -233,7 +236,7 @@ p {
     transition: color 0.3s;
   }
   
-  .toggle-switch {
+.toggle-switch {
     position: relative;
     width: 50px;
     height: 24px;
@@ -243,7 +246,7 @@ p {
     transition: background-color 0.4s;
   }
   
-  .slider {
+.slider {
     position: absolute;
     height: 18px;
     width: 18px;
@@ -253,12 +256,20 @@ p {
     border-radius: 50%;
     transition: transform 0.4s;
   }
+
+.toggle-switch.active {
+    background-color: var(--clr-primary2); /* Change background color when toggled */
+}
+
+.toggle-switch.active .slider {
+    transform: translateX(26px);
+}
   
 .addon-items {
     margin-top: 2rem;
     margin-bottom: 3rem;
 }
-.addon-item {
+.addon {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -270,39 +281,27 @@ p {
   transition: border-color 0.3s;
 }
 
-.addon-item.active {
+.addon:hover {
   border-color: var(--clr-primary2);
   background-color: #f0f4ff;
 }
 
-.addon-item .checkmark {
-  height: 20px;
-  width: 20px;
+.checkmark {
+  height: 24px;
+  width: 24px;
   border: 2px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
+  border-radius: 2px;
   display: inline-block;
   position: relative;
   margin-right: 10px;
-  transition: background-color 0.3s, border-color 0.3s;
+  transition: background 0.3s ease;
 }
 
-.addon-item.active .checkmark {
-  background-color: var(--clr-primary2);
+.addon.selected .checkmark {
   border-color: var(--clr-primary2);
+  background: var(--clr-primary2) url('assets/images/icon-checkmark.svg') center/cover no-repeat;
 }
 
-.addon-item.active .checkmark::after {
-  content: '';
-  position: absolute;
-  left: 4px;
-  top: 1px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
 
 .addon-content {
   flex-grow: 1;

@@ -52,7 +52,7 @@
   
 
     <div>
-      <div class="form-container" id="step-1">
+      <div class="form-container active" id="step-1">
 
         <!-- Step 1 start -->
           <h1>Personal info</h1>
@@ -79,37 +79,37 @@
     
           <form action="">
             <div class="plans" id="monthly" style="display: none;">
-              <div>
+              <div class="plan">
                 <img src="assets/images/icon-arcade.svg" alt="Arcade">
                 <h4>Arcade</h4>
                 <p>$9/mo</p>
               </div>
-              <div>
+              <div class="plan">
                 <img src="assets/images/icon-advanced.svg" alt="Advanced">
                 <h4>Advanced</h4>
                 <p>$12/mo</p>
               </div>
-              <div>
+              <div class="plan">
                 <img src="assets/images/icon-pro.svg" alt="Pro">
                 <h4>Pro</h4>
                 <p>$15/mo</p>
               </div>
             </div>
     
-            <div class="plans" id="yearly">
-              <div>
+            <div class="plans" id="yearly" style="display: none;">
+              <div class="plan">
                 <img src="assets/images/icon-arcade.svg" alt="Arcade">
                 <h4>Arcade</h4>
                 <p>$90/yr</p>
                 <h5>2 months free</h5>
               </div>
-              <div>
+              <div class="plan">
                 <img src="assets/images/icon-advanced.svg" alt="Advanced">
                 <h4>Advanced</h4>
                 <p>$120/yr</p>
                 <h5>2 months free</h5>
               </div>
-              <div>
+              <div class="plan">
                 <img src="assets/images/icon-pro.svg" alt="Pro">
                 <h4>Pro</h4>
                 <p>$150/yr</p>
@@ -140,31 +140,31 @@
     
            <form action="">
             <div class="addon-items">
-              <div class="addon-item">
+              <div class="addon">
                 <span class="checkmark"></span>
                 <div class="addon-content">
                   <h5>Online service</h5>
                   <p>Access to multiplayer games</p>
                 </div>
-                <span class="price">+$1/mo</span>
+                <span class="price"></span>
               </div>
       
-              <div class="addon-item">
+              <div class="addon">
                 <span class="checkmark"></span>
                 <div class="addon-content">
                   <h5>Larger storage</h5>
                   <p>Extra 1TB of cloud save</p>
                 </div>
-                <span class="price">+$2/mo</span>
+                <span class="price"></span>
               </div>
       
-              <div class="addon-item">
+              <div class="addon">
                 <span class="checkmark"></span>
                 <div class="addon-content">
                   <h5>Customizable Profile</h5>
                   <p>Custom theme on your profile</p>
                 </div>
-                <span class="price">+$2/mo</span>
+                <span class="price"></span>
               </div>
             </div>
            </form>
@@ -183,8 +183,20 @@
           <!-- Dynamically add subscription and add-on selections here -->
     
           <form action="" method="get">
-            <div>
-              <p>Total (per month/year)</p><span></span>
+            <div class="selected-plan">
+                <h5 id="plan-name">Arcade (Yearly)</h5>
+                <a href="#" id="change-plan">Change</a>
+                <p class="price" id="plan-price">$90/yr</p>
+            </div>
+            <hr>
+            <div class="add-ons" id="add-ons-list">
+                <p>Online service <span class="price">+$10/yr</span></p>
+                <p>Larger storage <span class="price">+$20/yr</span></p>
+            </div>
+            <hr>
+            <div class="total">
+                <p>Total (per year)</p>
+                <p class="total-price" id="total-price">$120/yr</p>
             </div>
           </form>
        
