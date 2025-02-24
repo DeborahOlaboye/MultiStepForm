@@ -9,8 +9,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const yearlyPlan = document.getElementById("yearly");
     const togglePricing = document.getElementById("togglePricing");
     const prices = document.querySelectorAll(".price");
-    let selectedPlan = null
-    let selectedPlanPrice = null
+    let selectedPlan = ""
+    let selectedPlanPrice = 0
     let selectedAddons = []
   
     let currentStep = 0;
@@ -77,6 +77,12 @@ document.addEventListener("DOMContentLoaded", function () {
         // updatePricing();
     });
 
+    // Plan pricing
+    const planPrices = {
+        monthly: { Arcade: 9, Advanced: 12, Pro: 15 },
+        yearly: { Arcade: 90, Advanced: 120, Pro: 150 }
+    };
+
     // Function to handle plan selection
     function selectPlan(plans) {
         plans.forEach(plan => {
@@ -90,19 +96,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Store selected plan
                 selectedPlan = this.querySelector("h4").innerText;
                 console.log("Selected Plan:", selectedPlan);
+
+                // Determine pricing based on selection
+                const planType = isYearly ? "yearly" : "monthly";
+                selectedPlanPrice = planPrices[planType][selectedPlan]; // Set price
+                console.log(selectedPlanPrice);
+                updateSummary();
             });
         });
     }
     
     // Select plans for both monthly and yearly options
-    selectPlan(document.querySelectorAll("#monthly .plan"));
-    selectPlan(document.querySelectorAll("#yearly .plan"));
+    selectPlan(document.querySelectorAll("#monthly .plan"), "monthly");
+    selectPlan(document.querySelectorAll("#yearly .plan"), "yearly");
 
-    // Plan pricing
-    const planPrices = {
-        monthly: { Arcade: 9, Advanced: 12, Pro: 15 },
-        yearly: { Arcade: 90, Advanced: 120, Pro: 150 }
-    };
+    
 
     const addonElements = document.querySelectorAll(".addon");
     const planElements = document.querySelectorAll(".plan");
@@ -122,6 +130,13 @@ document.addEventListener("DOMContentLoaded", function () {
         addonElements.forEach(addon => {
             const addonName = addon.querySelector("h5").innerText;
             // console.log(addonName);
+            if (addon.classList.contains("selected")) {
+                selectedAddons = selectedAddons.filter(item => item !== addonName);
+            } else {
+                selectedAddons.push(addonName);
+            }
+            addon.classList.toggle("selected");
+            updateSummary();
             const priceSpan = addon.querySelector(".price");
 
             if (isYearly) {
@@ -131,11 +146,29 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+     // Ensure all add-ons are unselected on page load
+     addonElements.forEach(addon => {
+        addon.classList.remove("selected"); // Remove 'selected' class on load
+    });
+
     addonElements.forEach(addon => {
-        addon.addEventListener("click", () => {
-            addon.classList.toggle("selected");
+        addon.addEventListener("click", function () {
+            const addonName = this.querySelector("h5").innerText;
+            
+            if (this.classList.contains("selected")) {
+                // Remove add-on if already selected
+                selectedAddons = selectedAddons.filter(item => item !== addonName);
+            } else {
+                // Add add-on if not selected
+                selectedAddons.push(addonName);
+            }
+
+            this.classList.toggle("selected"); // Toggle UI
+            updateSummary(); // Update prices
         });
     });
+
+    
 
     function updatePlanPricing() {
         planElements.forEach(plan => {
@@ -151,14 +184,37 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Toggle event for switching between monthly and yearly
-    toggleSwitch.addEventListener("click", function () {
+   
+    function updateSummary() {
+        // Update plan name and price
+        document.getElementById("plan-name").innerText = `${selectedPlan} (${isYearly ? "Yearly" : "Monthly"})`;
+        document.getElementById("plan-price").innerText = `$${selectedPlanPrice}/${isYearly ? "yr" : "mo"}`;
+
+        // Update selected add-ons
+        let addonsList = document.getElementById("add-ons-list");
+        addonsList.innerHTML = "";
+        let totalAddonsPrice = 0;
+
+        selectedAddons.forEach(addon => {
+            let price = isYearly ? addonPrices.yearly[addon] : addonPrices.monthly[addon];
+            totalAddonsPrice += price;
+            addonsList.innerHTML += `<p>${addon} <span class="price">+$${price}/${isYearly ? "yr" : "mo"}</span></p>`;
+        });
+
+        // Update total price
+        let totalPrice = selectedPlanPrice + totalAddonsPrice;
+        document.getElementById("total-price").innerText = `$${totalPrice}/${isYearly ? "yr" : "mo"}`;
+    }
+
+     // Toggle event for switching between monthly and yearly
+     toggleSwitch.addEventListener("click", function () {
         isYearly = !isYearly; // Toggle the plan type
         updateAddonPricing(); // Update add-ons pricing
+        updatePlanPricing();
+        updateSummary();
     });
      // Initialize pricing display on page load
-    updateAddonPricing();
-    updatePlanPricing();
     showStep(currentStep);
+    updateSummary();
   });
   
