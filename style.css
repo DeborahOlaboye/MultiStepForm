@@ -145,7 +145,7 @@ p {
     flex-direction: column;
     align-self: flex-start;
 }
-.form-container form button {
+.next {
     color: var(--clr-neutral5);
     background-color: var(--clr-primary1);
     border: none;
@@ -153,7 +153,6 @@ p {
     padding: 0.5rem 2rem;
     cursor: pointer;
     margin-left: auto;
-    margin-top: 2rem;
 }
 
 .button-container .back {
@@ -164,7 +163,6 @@ p {
     padding: 0.5rem 2rem;
     cursor: pointer;
     margin-left: 0;
-    margin-top: 2rem;
 }
 
 .form-container input {
@@ -186,7 +184,7 @@ p {
     justify-content: space-between;
     width: 100%;
     align-items: center;
-    position: absolute;
+    margin-bottom: 2rem;
 }
 .button-container:first-child {
     display: flex;
