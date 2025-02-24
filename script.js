@@ -32,6 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
       prevButtons.forEach(button => {
         button.style.display = stepIndex === 0 ? "none" : "inline-block";
       });
+       // Update Sidebar
+        const sidebarSteps = document.querySelectorAll(".sidebar ul li");
+        sidebarSteps.forEach((li, index) => {
+            li.classList.toggle("active", index === stepIndex);
+    });
     }
   
     nextButtons.forEach(button => {
@@ -76,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleSwitch.classList.toggle("active");
         // updatePricing();
     });
+    
 
     // Plan pricing
     const planPrices = {
