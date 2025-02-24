@@ -189,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Update plan name and price
         document.getElementById("plan-name").innerText = `${selectedPlan} (${isYearly ? "Yearly" : "Monthly"})`;
         document.getElementById("plan-price").innerText = `$${selectedPlanPrice}/${isYearly ? "yr" : "mo"}`;
+        document.getElementById("billing-cycle").innerText = isYearly ? "Yearly" : "Monthly";
 
         // Update selected add-ons
         let addonsList = document.getElementById("add-ons-list");
